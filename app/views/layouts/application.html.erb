@@ -1,14 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>WebStew</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+	<title>WebStew</title>
+	<%= csrf_meta_tags %>
+	
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	
+	<%= stylesheet_link_tag    "application", :media => "all" %>
 </head>
+<!--[if IE 8]>
+	<body class="ie ie8">
+<![endif]-->
+<!--[if IE 9]>
+  <body class="ie ie9">
+<![endif]-->
+<!--[if gt IE 9]>
+	<body>
+<![endif]-->
+<!--[if !IE]><!-->
 <body>
-
-<%= yield %>
-
+<!--<![endif]-->
+	<p class="notice"><%= notice %></p>
+	<p class="alert"><%= alert %></p>
+	
+	<%= yield %>
+	
+	<%= javascript_include_tag "application" %>
 </body>
 </html>
