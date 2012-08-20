@@ -1,0 +1,88 @@
+@media screen {
+
+	// Page attributes
+	.page {
+		clear: left;
+		margin: 0 auto;
+		max-width: $page-max;
+		padding: 0 $pad-med 0 $pad-med;
+	}
+
+	// Grid layout
+	.grid-primary,
+	.grid-secondary {
+		clear: left;
+		float: left;
+		width: 100%;
+	}
+	.grid {
+		display: inline;
+		float: left;
+	}
+	
+	// Grid widths
+	.w-20 {
+		width: 20%;	
+	}
+	.w-25 {
+		width: 25%;	
+	}
+	.w-33 {
+		width: 33.33%;	
+	}
+	.w-50 {
+		width: 50%;	
+	}
+	.w-75 {
+		width: 75%;	
+	}
+	
+	// Padding classes
+	.pad {
+		padding:0 $pad-med;
+	}
+}
+
+// Mobile landscape to small tablet
+@media only screen and ( min-width: 480px ) and ( max-width: 850px ) {
+
+	.page {
+		padding: 0 $pad-med 0 $pad-med;
+	}
+
+	.w-20,
+	.w-33,
+	.grid-secondary > .w-25 {
+		width: 50%;
+	}
+	.w-20:last-child,
+	.w-33:last-child {
+		clear: left;
+		width: 100%;
+	}
+	.grid-primary > .w-25,
+	.grid-primary > .w-50,
+	.grid-primary > .w-75 {
+		width: 100%;
+	}
+}
+
+// Mobile landscape and portrait
+@media only screen and ( min-width: 320px ) and ( max-width: 519px ) {
+
+	.page {
+		padding: 0 $pad-sml 0 $pad-sml;
+	}
+}
+
+// Mobile portrait
+@media only screen and ( min-width: 320px ) and ( max-width: 479px ) {
+
+	.grid {
+		width: 100%;
+	}
+	
+	.pad {
+		padding:0 $pad-sml;
+	}
+}

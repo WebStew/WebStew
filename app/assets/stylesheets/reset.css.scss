@@ -1,0 +1,84 @@
+
+@media screen, print {
+	
+	// CSS Reset
+	body, 
+	h1, 
+	h2, 
+	h3, 
+	h4, 
+	h5, 
+	h6, 
+	p, 
+	blockquote, 
+	pre, 
+	abbr, 
+	address, 
+	code, 
+	em, 
+	img, 
+	small, 
+	strong, 
+	sub, 
+	sup, 
+	dl, 
+	dt, 
+	dd, 
+	ol, 
+	ul, 
+	li, 
+	fieldset, 
+	form, 
+	label, 
+	legend, 
+	table, 
+	caption, 
+	tr, 
+	th, 
+	td {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		outline: 0;
+		font-size: 100%;
+		vertical-align: baseline;
+		background: transparent;
+		text-align: left;
+	}
+	
+	// HTML 5 Resets 
+	article, 
+	aside, 
+	figure, 
+	footer, 
+	header, 
+	hgroup, 
+	menu, 
+	nav, 
+	section, 
+	menu, 
+	time, 
+	mark, 
+	audio, 
+	video {
+		margin: 0;
+		padding: 0;
+		border: 0;
+		outline: 0;
+		font-size: 100%;
+		vertical-align: baseline;
+		background: transparent;
+		text-align: left;
+	}
+	article, 
+	aside, 
+	figure, 
+	footer, 
+	header, 
+	hgroup, 
+	nav, 
+	section, 
+	details {
+		display: block;
+	}
+}

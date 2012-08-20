@@ -1,0 +1,95 @@
+
+// Theme setup
+
+// Colours
+$colour-action: #00a9e0;
+$colour-action-med: #0081ab;
+$colour-action-dark: #00759b;
+$colour-action-darkest: #016484;
+
+$colour-error: #ca4242;
+
+$colour-body: #333;
+$colour-body-med: #454545;
+$colour-body-darkest: #1a1a1a;
+
+$colour-bold: #555;
+
+$colour-compliment-light: #f5f5f5;
+$colour-compliment: #d9d9d9;
+$colour-compliment-med: #eee;
+$colour-compliment-dark: #ccc;
+$colour-compliment-darkest: #aaa;
+
+$colour-blur: #fafafa;
+$colour-sharp: #fff;
+
+$colour-highlight-bg: #00a9e0;
+$colour-highlight-text: #fff;
+
+$colour-shadow: #aaa;
+
+// Border
+$border-sml: 2px;
+$border-med: 5px;
+$border-lrg: 10px;
+
+// Fonts
+$font-family-1: Helvetica, Arial, 'DejaVu Sans', 'Liberation Sans', Freesans, sans-serif;
+$font-family-2: Cambria, 'Times New Roman', 'Nimbus Roman No9 L', 'Freeserif', Times, serif;
+$font-family-code: Consolas, 'Lucida Console', 'DejaVu Sans Mono', monospace;
+$font-size-base: 81.3%;
+$font-size-mobile: 76%;
+$letter-spacing: 2px;
+
+// List styles
+$list-primary: disc;
+$list-secondary: decimal;
+
+// Global line height
+$line-height: 1.5;
+
+// Margins
+$margin-sml: 5px;
+$margin-med: 10px;
+$margin-lrg: 15px;
+
+// Opacity
+$opacity: 0.4;
+
+// Padding
+$pad-sml: 5px;
+$pad-med: 10px;
+$pad-lrg: 15px;
+$padding-sml: $pad-sml $pad-sml;
+$padding-med: $pad-med $pad-med;
+$padding-lrg: $pad-lrg $pad-lrg;
+
+// Page attributes
+$page-max: 1350px;
+
+// Shadows
+$shadow-text-radius: 1px;
+$shadow-box-radius: 3px;
+
+// Text decorations
+$text-decoration: none;
+$text-decoration-hover: underline;
+
+// Transitions
+$transition-ease: ease-in-out;
+$transition-time: 0.25s;
+
+// Transforms
+$rotate: 35;
+$scale: 1.25;
+$skew-x: 35;
+$skew-y: 0;
+$translate-x: 10px;
+$translate-y: 10px;
+
+// Fixed Widths
+$width-sml: 15%;
+$width-med: 30%;
+$width-lrg: 60%;
+$width-default: 100%;

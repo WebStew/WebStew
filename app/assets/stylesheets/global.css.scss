@@ -1,0 +1,236 @@
+@media screen, print {
+	
+	// Selection highlights
+	::selection {
+		background: $colour-highlight-bg;
+		color: $colour-highlight-text;
+		text-shadow: none;
+	}
+	::-moz-selection {
+		background: $colour-highlight-bg;
+		color: $colour-highlight-text;
+		text-shadow: none;
+	}
+	
+	// Custom webkit scrollbars
+	::-webkit-scrollbar {
+		background: $colour-compliment-light;
+		@include border-radius($border-sml, $border-sml, $border-sml, $border-sml);
+		width: 12px;
+	}
+	::-webkit-scrollbar-track {
+		background: $colour-blur;
+		border-left: 1px solid $colour-compliment;
+	}
+	::-webkit-scrollbar-thumb {
+		background: $colour-action-dark;
+		border: 1px solid $colour-action-darkest;
+	}
+	::-webkit-scrollbar-thumb:hover {
+		background: $colour-action;
+		@include box-shadow-inset(0, 0, $shadow-box-radius, $colour-action-dark);
+	}
+	
+	// Global elements
+	abbr[title] {
+		border-bottom: 1px dotted $colour-body;
+		cursor: help;
+	}
+	body {
+	 	@include background-gradient();
+	 	background-attachment: fixed;
+	 	background-repeat: no-repeat;
+		color: $colour-body;
+		font-size: $font-size-base;
+		font-family: $font-family-1;
+		font-smooth: always;
+		height: 100%;
+		line-height: $line-height;
+		margin: 0;
+		text-rendering: optimizeLegibility;
+		-webkit-font-smoothing: antialiased;
+	}
+	code,
+	pre {
+		background: $colour-compliment-light;
+		border:1px dotted $colour-compliment;
+		@include border-radius($border-sml, $border-sml, $border-sml, $border-sml);
+		display:block;
+		font-family: $font-family-code;
+		margin:0 0 $margin-lrg;
+		padding: $padding-lrg;
+		@include wrap();
+	}
+	html {
+		height: 100%;
+		overflow-y: scroll;
+	}
+	p {
+		margin-bottom: $margin-lrg;
+	}
+	ol,
+	ul {
+		list-style-position: inside;
+		margin: 0 0 $margin-lrg $margin-lrg;
+	}
+	ul {
+		list-style-type: $list-primary;
+	}
+	ol {
+		list-style-type: $list-secondary;
+	}
+	li {
+		margin: 0 0 $margin-sml;
+	}
+	small {
+		font-size: 0.846em;
+	}
+	strong,
+	b {
+		color: $colour-bold;
+		font-weight: 700;
+	}
+	table {
+		background: $colour-blur;
+		border-collapse: collapse;
+		border-spacing: 0;
+		border-top: 1px solid $colour-compliment;
+		border-right: 1px solid $colour-compliment;
+		border-bottom: 1px solid $colour-compliment;
+		@include border-radius($border-sml, $border-sml, $border-sml, $border-sml);
+		font-size: 1em;
+		margin: 0 0 $margin-lrg;
+		table-layout: fixed;
+		width: 100%;
+		
+		caption {
+			color: $colour-bold;
+			font-family: $font-family-2;
+			font-size: 2em;
+			margin:0 0 $margin-sml;
+		}
+		td,
+		th {
+			border-left: 1px solid $colour-compliment;
+			padding: $padding-med;
+		}	
+		th {
+			background: $colour-compliment-light;
+			font-weight: 700;
+		}
+		td {
+			border-top: 1px solid $colour-compliment;
+		}
+	}
+	
+	// Headings
+	// Additional .header classes added for styling elements as per our heading structure style
+	h1, 
+	h2, 
+	h3, 
+	h4, 
+	h5, 
+	h6,
+	.h1,
+	.h2,
+	.h3,
+	.h4,
+	.h5 {
+		color: $colour-bold;
+		font-family: $font-family-2;
+		font-weight: 400;
+		font-size: 1em;
+		margin: 0 0 $margin-lrg;
+	}
+	h1,
+	.h1 {
+		font-size: 2.769em;
+		letter-spacing: $letter-spacing;
+		line-height: 1.2;
+		text-transform: uppercase;
+	}
+	h2,
+	.h2 {
+		font-size: 2em;
+		line-height: 1.2;
+	}
+	h3,
+	.h3 {
+		font-size: 1.846em;	
+	}
+	h4,
+	.h4 {
+		font-size: 1.538em;
+	}
+	h5,
+	h6,
+	.h5 {
+		font-size: 1.231em;
+	}
+	
+	// Links
+	a {
+		color: $colour-action;
+		cursor: pointer;
+		text-decoration: $text-decoration;
+		outline: none;
+		
+		/*&:visited {
+			color: $colour-action-dark;
+		}*/
+		&:hover, 
+		&:active, 
+		&:focus {
+			color: $colour-action-dark;
+			text-decoration: $text-decoration-hover;
+		}
+	}
+}
+
+// Mobile landscape to small tablet
+@media only screen and ( min-width: 480px ) and ( max-width: 850px ) {
+
+	// Reduce margin sizes
+	h1, 
+	h2, 
+	h3, 
+	h4, 
+	h5, 
+	h6,
+	ol,
+	p,
+	ul,
+	table {
+		margin-bottom: $margin-med;
+	}
+}
+
+// Mobile landscape and portrait
+@media only screen and ( min-width: 320px ) and ( max-width: 519px ) {
+	
+	// Reduce to mobile font size
+	body {
+		font-size: $font-size-mobile;
+	}
+	
+	// Reduce margin sizes
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	ol,
+	p,
+	ul,
+	table {
+		margin-bottom: $margin-med;
+	}
+	
+	table {
+		td,
+		th {
+			padding: $padding-sml;
+		}
+	}
+}

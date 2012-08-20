@@ -1,0 +1,94 @@
+
+// Border radius
+@mixin border-radius($radius-top-left, $radius-top-right, $radius-bottom-right, $radius-bottom-left) {
+	-webkit-border-radius:	$radius-top-left $radius-top-right $radius-bottom-right $radius-bottom-left;
+	-moz-border-radius:		$radius-top-left $radius-top-right $radius-bottom-right $radius-bottom-left;
+	border-radius:			$radius-top-left $radius-top-right $radius-bottom-right $radius-bottom-left;
+}
+
+// Box shadows
+@mixin box-shadow($shadow-x: 0, $shadow-y: 0, $shadow-radius: $shadow-box-radius, $shadow-color: $colour-shadow) {
+	-webkit-box-shadow:	$shadow-x $shadow-y $shadow-radius $shadow-color;
+	-moz-box-shadow:	$shadow-x $shadow-y $shadow-radius $shadow-color;
+	box-shadow:			$shadow-x $shadow-y $shadow-radius $shadow-color;
+}
+@mixin box-shadow-inset($shadow-x: 0, $shadow-y: 0, $shadow-radius: $shadow-box-radius, $shadow-color: $colour-shadow) {
+	-webkit-box-shadow:	inset $shadow-x $shadow-y $shadow-radius $shadow-color;
+	-moz-box-shadow:	inset $shadow-x $shadow-y $shadow-radius $shadow-color;
+	box-shadow:			inset $shadow-x $shadow-y $shadow-radius $shadow-color;
+}
+@mixin text-shadow($shadow-radius: $shadow-text-radius, $shadow-text: $colour-compliment-dark) {
+	text-shadow: 0 0 $shadow-radius $shadow-text;
+}
+
+// Box sizing
+@mixin box-sizing($size: border-box) {
+	-moz-box-sizing: $size;
+	-webkit-sizing: $size;
+	box-sizing: $size;
+}
+
+// Opacity
+@mixin opacity($op: $opacity) {
+	filter:			alpha(opacity=$op);
+	-moz-opacity:	$op;
+	-khtml-opacity:	$op;
+	opacity:		$op;
+}
+
+// Gradients
+@mixin background-gradient($from: $colour-compliment-med, $to: $colour-compliment-light) {
+	background:			$from;
+	background-image:	-webkit-gradient(linear, left top, left bottom, from($from), to($to));
+	background-image:	-moz-linear-gradient(top, $from, $to);
+	background:			linear-gradient(top, $from, $to);
+	-ms-filter:			formatstring("\"progid:DXImageTransform.Microsoft.gradient(startColorStr='{0}', EndColorStr='{1}')\"", $from, $to);
+}
+
+// Transitions and transforms
+@mixin transition($range: all, $time: $transition-time, $ease: $transition-ease) {
+	-moz-transition:	$range $time $ease;
+	-ms-transition:		$range $time $ease;
+	-webkit-transition:	$range $time $ease;
+	-o-transition:		$range $time $ease;
+	transition:			$range $time $ease;
+}
+
+// Transformations
+@mixin skew($angle-x: $skew-x, $angle-y: $skew-y) {
+	-webkit-transform:	skew(formatstring("{0}deg", $angle-x), formatstring("{0}deg", $angle-y));
+	-moz-transform:		skew(formatstring("{0}deg", $angle-x), formatstring("{0}deg", $angle-y));
+	-o-transform:		skew(formatstring("{0}deg", $angle-x), formatstring("{0}deg", $angle-y));
+	-ms-transform:		skew(formatstring("{0}deg", $angle-x), formatstring("{0}deg", $angle-y));
+	transform:			skew(formatstring("{0}deg", $angle-x), formatstring("{0}deg", $angle-y));
+}
+
+@mixin scale($scale-x: $scale) {
+	-webkit-transform:	scale($scale-x);
+	-moz-transform:		scale($scale-x);
+	-o-transform:		scale($scale-x);
+	-ms-transform:		scale($scale-x);
+	transform:			scale($scale-x);
+}
+@mixin rotate($deg: $rotate) {
+	-webkit-transform:	rotate(formatstring("{0}deg", $deg));
+	-moz-transform:		rotate(formatstring("{0}deg", $deg));
+	-o-transform:		rotate(formatstring("{0}deg", $deg));
+	-ms-transform:		rotate(formatstring("{0}deg", $deg));
+	transform:			rotate(formatstring("{0}deg", $deg));
+}
+@mixin translate($move-x: $translate-x, $move-y: $translate-y) {
+	-webkit-transform:	translate($move-x, $move-y);
+	-moz-transform:		translate($move-x, $move-y);
+	-o-transform:		translate($move-x, $move-y);
+	-ms-transform:		translate($move-x, $move-y);
+	transform:			translate($move-x, $move-y);
+}
+
+// Word wraps
+@mixin wrap() {
+  text-wrap: wrap;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  word-wrap: break-word;
+}
