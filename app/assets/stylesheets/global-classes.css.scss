@@ -37,9 +37,13 @@
 	}
 	
 	// Lists
+	.list-inline,
 	.list-plain {
 		list-style-type: none;
 		margin-left: 0;
+	}
+	.list-inline li {
+		float: left;
 	}
 }
 // Mobile landscape to small tablet
