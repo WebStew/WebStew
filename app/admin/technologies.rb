@@ -5,16 +5,16 @@ ActiveAdmin.register Technology do
     column :name
     column :title
     column :description    
-#     column "Projects" do |technology|
-#       (technology.projects.map{ |p| "&bull;	" + p.name }).join('<br> ').html_safe
-#     end
+    column "Projects" do |technology|
+      (technology.projects.map{ |p| "&bull;	" + p.name }).join('<br> ').html_safe
+    end
     
     default_actions
   end
   
   # Filter controls
   filter :name
-  # filter :projects_id, :as => :check_boxes, :collection => proc {Project.all()}
+ filter :projects_id, :as => :check_boxes, :collection => proc {Project.all()}
  
   # CRUD ations
   form do |f|
@@ -22,7 +22,7 @@ ActiveAdmin.register Technology do
       f.input :name
       f.input :title
       f.input :description
-      # f.input :projects, as: :check_boxes
+      f.input :projects, as: :check_boxes
     end
     
     f.buttons

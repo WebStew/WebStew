@@ -9,9 +9,9 @@ ActiveAdmin.register Project do
     end
     
     column :description
-#     column "Technologies" do |project|
-#       (project.technologies.map{ |p| "&bull;	" + p.name }).join('<br> ').html_safe
-#     end
+    column "Technologies" do |project|
+      (project.technologies.map{ |p| "&bull;	" + p.name }).join('<br> ').html_safe
+    end
 #     column "Type" do |project|
 #       (project.types.map{ |p| "&bull;	" + p.name }).join('<br> ').html_safe
 #     end
@@ -22,7 +22,7 @@ ActiveAdmin.register Project do
   
   # Filter controls
   filter :name
-  # filter :technologies_id, :as => :check_boxes, :collection => proc {Technology.all()}
+  filter :technologies_id, :as => :check_boxes, :collection => proc {Technology.all()}
   # filter :types_id, :as => :check_boxes, :collection => proc {Type.all()}
   
   # CRUD actions
@@ -32,7 +32,7 @@ ActiveAdmin.register Project do
       f.input :name
       f.input :url
       f.input :description
-      # f.input :technologies, as: :check_boxes
+      f.input :technologies, as: :check_boxes
       # f.input :types, as: :check_boxes
     end
     
