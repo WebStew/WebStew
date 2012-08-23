@@ -8,11 +8,11 @@
 		@include border-radius($border-sml, $border-sml, $border-sml, $border-sml);
 		color: $colour-action;
 		cursor: pointer;
-		float: right;
+		float: left;
 		font-family: $font-family-1;
 		font-size: 1em;
 		line-height: 1;
-		margin: 0 0 0 $margin-med;
+		margin: 0 $margin-med 0 0;
 		overflow: visible;
 		padding: $pad-med $pad-lrg $pad-med $pad-lrg;
 		text-decoration: $text-decoration;

@@ -1,0 +1,26 @@
+<h2>Technologies</h2>
+<div class="technology-index">
+	<form action="#" class="linear">
+		<fieldset>
+			<legend>
+				<span>Please choose your technologies</span>
+			</legend>
+			<ol class="list-plain">
+				<% if @.length: %>
+					<% for technology in @: %>
+						<li>
+							<div class="check-box">
+								<input type="checkbox" id="technology-<%= technology.id %>" name="<%= technology.name %>">
+								<label for="technology-<%= technology.id %>"><%= technology.name %></label>
+							</div>
+						</li>
+					<% end %>					
+				<% else: %>
+					<li>
+						<strong>No technologies</strong>
+					</li>
+				<% end %>
+			</ol>
+		</fieldset>
+	</form>
+</div>
