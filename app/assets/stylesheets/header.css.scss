@@ -1,0 +1,28 @@
+@media screen {
+	
+	// Masthead 
+	.header {
+		background: $colour-secondary;
+		@include background-gradient($colour-secondary-light, $colour-secondary);
+		margin: 0 0 $margin-med;
+		overflow: hidden;
+		padding: $pad-med 0 0;
+		
+		.page-name {
+			font-size: 1em;
+			color: $colour-sharp;
+			@include text-shadow();
+			
+			.section-name {
+				color: $colour-bold-lightest;
+			}
+		}
+	}
+	
+	// Primary navigation
+	.navigation-primary {
+		@include background-gradient();
+		border-bottom: 1px solid $colour-compliment;
+		border-top: 1px solid $colour-compliment;
+	}
+}

@@ -1,10 +1,16 @@
 Technology = WebStew.Technology
 
 class TechnologiesIndex extends Spine.Controller
+
+	@include WebStew.ORM.checkbox
+	@include WebStew.ORM.search
 	
 	el: $ '#technologies-index'
 	
 	className: 'stack-item'
+	
+	events:
+		'click label': 'toggleCheckbox'
 
 	constructor: ->
 		super
@@ -12,47 +18,30 @@ class TechnologiesIndex extends Spine.Controller
 		Technology.bind 'refresh channge', @render
 	
 	activate: ->
-		@log 'Technologies index activated'
+		@el.addClass 'stack-item-active'
+		
+	deactivate: ->
+		@el.removeClass 'stack-item-active'
 	
 	render:  =>
 		items = Technology.all()
 		@html @view('technologies/index')(items)
 		
-class TechnologiesStack extends Spine.Stack
-
-	el: 'technologies-stack'
-	
-	className: 'stack-manager'
-
-	controllers:
-		index: TechnologiesIndex
-
-class WebStew.Technologies extends Spine.Controller
+class WebStew.Technologies extends Spine.Stack
 
 	el: $ '#technologies'
 	
-	className: 'stack-item'
+	className: 'stack-manager stack-item'
 	
 	constructor: ->
 		super
-		@log 'Technolgies top tier controller init'
-		@stack = new TechnologiesStack
-		
-		@routes
-			'/technologies': @navigateIndex
-	
-	navigateIndex: ->
-		@log 'Activating Technolgies index controller'
-		@stack.index.active()
-		
-	
-	deactivate: ->
-		@el.removeClass 'active'
-		@log 'Technologies inactive'
-	
+		@index.active()
+
+	controllers:
+		index: TechnologiesIndex
 	
 	activate: ->
-		@el.addClass 'active'
-		@log 'Technologies active'
-  		
-  		
+		@el.addClass 'stack-item-active'
+		
+	deactivate: ->
+		@el.removeClass 'stack-item-active'

@@ -6,7 +6,7 @@
 		background: none;
 		border: 1px solid transparent;
 		@include border-radius($border-sml, $border-sml, $border-sml, $border-sml);
-		color: $colour-action;
+		color: $colour-body;
 		cursor: pointer;
 		float: left;
 		font-family: $font-family-1;
@@ -14,9 +14,8 @@
 		line-height: 1;
 		margin: 0 $margin-med 0 0;
 		overflow: visible;
-		padding: $pad-med $pad-lrg $pad-med $pad-lrg;
+		padding: ($pad-med - 3) ($pad-med - 1) ($pad-med - 2) ($pad-med - 1);
 		text-decoration: $text-decoration;
-		@include transition();
 		white-space: nowrap;
 		width: auto;
 		
@@ -30,15 +29,16 @@
 		border: 0;
 	}
 	.button-secondary {
-		@include background-gradient($colour-compliment-med, $colour-compliment);
-		border-color: $colour-compliment-dark;
-		color: $colour-bold;
+		@include background-gradient();
+		border-color: $colour-compliment;
+		color: $colour-body;
+		@include transition();
 		
 		&:hover,
 		&:focus {
 			border-color: $colour-compliment-darkest;
 			@include box-shadow();
-			color: $colour-body;
+			color: $colour-action-dark;
 			text-decoration: $text-decoration;
 		}
 	}
@@ -46,6 +46,7 @@
 		@include background-gradient($colour-action, $colour-action-med);
 		border-color: $colour-action-dark;
 		color: $colour-blur;
+		@include transition();
 		
 		&:hover,
 		&:focus {
@@ -54,6 +55,32 @@
 			color: $colour-sharp;
 			text-decoration: $text-decoration;
 		}
+	}
+	.button-pressed,
+	.button-pressed:hover,
+	.button-pressed:focus {
+	    cursor: text;
+		text-decoration: $text-decoration;
+	}
+	.button-primary-pressed,
+	.button-primary-pressed:hover,
+	.button-primary-pressed:focus {
+		background: $colour-action-med;
+		border-color: $colour-action-dark;
+		@include box-shadow-inset(0, 0, $shadow-box-radius, $colour-action-dark);
+		color: $colour-compliment-light;
+		cursor: text;
+		@include transition();
+	}
+	.button-secondary-pressed,
+	.button-secondary-pressed:hover,
+	.button-secondary-pressed:focus {
+		background: $colour-button-bg-pressed;
+		border-color: $colour-compliment-darker;
+		@include box-shadow-inset(0, 0, $shadow-box-radius, $colour-compliment-darker);
+		color: $colour-bold-light;
+		cursor: text;
+		@include transition();
 	}
 	button[disabled],
 	.button-disabled,
@@ -72,6 +99,7 @@
 		width: $width-med;
 	}
 	label, 
+	label abbr[title],
 	button, 
 	select {
 		cursor: pointer;
@@ -95,8 +123,8 @@
 		&:focus {
 			@include transition();
 			background: $colour-sharp;
-			border-color: $colour-action;
-			@include box-shadow(0, 0, $shadow-box-radius, $colour-action);
+			border-color: $colour-action-dark;
+			@include box-shadow(0, 0, $shadow-box-radius, $colour-action-dark);
 			color: $colour-body;
 			outline: none;
 		}
@@ -113,6 +141,28 @@
 			width: $width-med;
     	}
     }
+		
+	// Check boxes and radio buttons		
+	.check-box,
+	.radio-box {
+		margin: 0 0 $margin-med;
+		overflow: hidden;
+		padding-left: $width-med;
+		
+		input {
+			border: none;
+			cursor: pointer;
+			float: left;
+			position: relative;
+			top: 5px;
+			width: auto;
+		}
+		label {
+			float: left;
+			text-align: left;
+			width: auto;
+		}
+	}	
 	
 	form {
 		
@@ -174,30 +224,7 @@
 			padding: $pad-med 0 0;
 			width: 100%;
 		}
-		
-		// Check boxes and radio buttons		
-		.check-box,
-		.radio-box {
-			margin: 0 0 $margin-med;
-			overflow: hidden;
-			padding-left: $width-med;
-			
-			input {
-				border: none;
-				cursor: pointer;
-				float: left;
-				position: relative;
-				top: 5px;
-				width: auto;
-			}
-			label {
-				padding-left: $pad-med;
-				float: left;
-				text-align: left;
-				width: auto;
-			}
-		}
-		
+
 		// Landscape for radio and checkboxes
 		.landscape {
 			@include box-sizing();
@@ -296,7 +323,7 @@
 		@include border-radius($border-sml, $border-sml, $border-sml, $border-sml);
 		margin: 0 0 $margin-lrg;
 		overflow: hidden;
-		padding: $padding-lrg;
+		padding: $pad-lrg;
 		
 		h2 {
 			color: $colour-error;

@@ -1,3 +1,5 @@
+
+// Utility classes
 @media screen {
 
 	// Hidden classes
@@ -32,19 +34,241 @@
 		overflow: hidden;
 		padding: $pad-lrg $pad-med $pad-med;
 	}
+	.content-pad {
+		padding: $pad-med;
+	}
 	.txt-justify {
 		text-align: justify;
 	}
+	.weight-normal {
+		font-weight :400;
+	}
+	
+	// Controllers
+	.controller-updating {
+		clear: left;
+		float: left;
+		position: relative;
+		width: 100%;
+		
+		.controller-body {
+			@include opacity();
+		}
+		.icon-loading {
+			left: 50%;
+			margin: 0 0 0 -16px;
+			position: absolute;
+			top: 35%;
+		}
+	}
 	
 	// Lists
-	.list-inline,
-	.list-plain {
+	.list-plain,
+	.list-inline {
+		list-style-type: none;
+		margin: 0 0 $margin-med;
+	}
+	.list-inline {
+		clear: left;
+		float: left;
+		width: 100%;
+		
+		li {
+			display: inline;
+			margin: 0;
+		}
+		a {
+			float: left;
+			margin: 0 $margin-med 0 0;
+		}
+	}
+	.error-list {
+		li {
+			color: $colour-error;
+			margin: 0 0 $margin-sml;
+		}
+	}
+	
+	// Data	
+	.data-list {
 		list-style-type: none;
 		margin-left: 0;
+		@include transition();
+		
+		a,
+		label {
+			border-bottom: 1px dotted $colour-compliment;
+			display: block;
+			float: none;
+			padding: $pad-sml $pad-med;
+			@include transition();
+			
+			&:hover,
+			&:focus {
+				background-color: $colour-compliment-light;
+			}
+			&.data-active {
+				background-color: $colour-button-bg-pressed;
+				border-color: $colour-compliment-darker;
+				@include box-shadow-inset(0, 0, $shadow-box-radius, $colour-compliment-darker);
+				color: $colour-bold;
+			}
+		}
+		li,
+		.check-box {
+			margin: 0;
+		}
+		p {
+			padding: $pad-sml ($pad-med - 1) $pad-sml ($pad-med - 1);
+		}
 	}
-	.list-inline li {
+	.data-head {
+	 	@include background-gradient();
+		border: 1px solid $colour-compliment;
+		@include border-radius($border-sml, $border-sml, 0, 0);
+		clear: left;
+		outline: none;
+		overflow: hidden;
+	}
+	.ie .data-head {
+		background: $colour-button-bg-pressed url('images/ie/grey.png') 0 0 repeat-x;
+	}
+	.data-search {
+		float: right;
+		padding: 4px 0 3px;
+		position: relative;
+		width: 50%;
+		
+		input {
+			color: $colour-bold;
+			float: right;
+			margin: 0 5px 0 0;
+			max-width: 200px;
+			padding-bottom: ($pad-sml - 3);
+			padding-top: ($pad-sml - 3);
+		}
+		.icon-search {
+			background-color: transparent;
+			border: none;
+			position: absolute;
+			right: 5px;
+			top: 5px;
+			
+			&:hover,
+			&:focus {
+				box-shadow: none;
+			}
+		}
+		.field {
+			float: none;
+			width: 100%;
+		}
+	}
+	.data-name {
+		color: $colour-secondary-light;
 		float: left;
+		font-size: 1em;
+		font-weight: 400;
+		line-height: 1;
+		margin: 0;
+		padding: ($pad-med - 2) $pad-med ($pad-med - 1);
 	}
+	.data-body {
+		background: $colour-sharp;
+		border-bottom: 1px solid $colour-compliment;
+		border-left: 1px solid $colour-compliment;
+		border-right: 1px solid $colour-compliment;
+		@include border-radius(0, 0, $border-sml, $border-sml);
+		height: 501px;
+		margin: 0 0 $margin-med;
+		outline: none;
+		overflow-x: hidden!important; // jQuery ui inlines a overflow-x: sroll style
+		overflow-y: scroll;
+		@include transition(background, $transition-time, $transition-ease);
+		
+		.data-list {
+			margin: 0;
+			height: 100%;
+		}
+	}
+	.data-body-scrolless {
+		height: auto;
+		overflow-y: hidden;
+	}
+	.data-body-sml {
+		height: 229px;
+	}
+	
+	// Navigation heads within data heads
+	.navigation-head {
+		padding: 0;
+	}
+	.navigation-list {
+		margin: 0;
+		
+		li {
+			display: inline;
+			margin: 0;
+		}
+		a {
+			border: 1px solid transparent;
+			border-right-color: $colour-compliment;
+			@include transition();
+		}
+		.data-name {	
+			padding: ($pad-med - 3) ($pad-med - 1) ($pad-med - 2);
+		}
+		.navigation-active {
+			background: $colour-button-bg-pressed;
+			border-color: $colour-compliment-darker;
+			@include box-shadow-inset(0, 0, $shadow-box-radius, $colour-compliment-darker);
+			color: $colour-bold-light;
+			cursor: text;
+		}
+	}
+	
+	// Accordion slider
+	.slider-pane {
+		.slider-head {
+			border-top: 1px solid $colour-compliment;
+			cursor: pointer;
+			overflow: hidden;
+			
+			&:hover {
+				background: $colour-compliment-light;
+			}
+			.icon {
+				margin-top:$margin-sml;
+			}
+		}
+		.slider:first-child .slider-head {
+			border-top: none;
+		}
+		.slider-name {
+			color: $colour-bold;
+			float: left;
+			font-size: 1em;
+			font-weight: 400;
+			line-height: 1;
+			margin: 0;
+			padding: ($pad-med - 2) $pad-med ($pad-med - 1);
+		}
+		.slider-body {
+			display: none;
+			padding: $pad-med $pad-med 0;
+		}
+	}
+	
+	// Stacks
+	.stack-manager {
+		> .stack-item {
+			display: none;
+		}
+		> .stack-item-active {
+			display: block;
+		}
+	}
+	
 }
 // Mobile landscape to small tablet
 @media only screen and ( min-width: 480px ) and ( max-width: 850px ) {

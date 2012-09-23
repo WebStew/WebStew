@@ -1,0 +1,57 @@
+@media screen {
+	
+	.icon {
+		background-image: url('images/icons.png');
+		background-position: 0 0;
+		background-repeat: no-repeat;
+		background-color: $colour-compliment-light;
+		border: 1px solid $colour-compliment-dark;
+		@include border-radius($border-sml, $border-sml, $border-sml, $border-sml);
+		float: left;
+		height: 18px;
+		margin: 0 $margin-sml 0 0;
+		width: 18px;
+	}
+	.icon:hover,
+	.icon:focus,
+	a:hover .icon,
+	a:focus .icon {
+		border-color: $colour-compliment-darkest;
+		@include box-shadow();
+	}
+	
+	.icon-search {
+		background-position: -61px 1px;
+		height: 22px;
+		width: 22px;
+		
+		&:hover,
+		&:focus {
+			background-position: -61px -19px;
+		}
+	}
+	
+	.check-box input {
+		 + label {
+		 	.icon {
+				background-position: -1000px -1000px;
+				background-color: $colour-compliment-light;
+				@include box-shadow-inset(0, 0, $shadow-box-radius, $colour-compliment-dark);
+			}
+		 	&:hover .icon {
+				border-color: $colour-compliment-darkest;
+				@include box-shadow();
+			}
+		}
+		&:checked {
+			 + label {
+			 	.icon {
+					 background-position: -39px -1px;
+				}
+				&:hover .icon {
+					background-position: -39px -22px;
+				}
+			}
+		}
+	}
+}

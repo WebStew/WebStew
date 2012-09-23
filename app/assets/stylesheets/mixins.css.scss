@@ -17,7 +17,7 @@
 	-moz-box-shadow:	inset $shadow-x $shadow-y $shadow-radius $shadow-color;
 	box-shadow:			inset $shadow-x $shadow-y $shadow-radius $shadow-color;
 }
-@mixin text-shadow($shadow-radius: $shadow-text-radius, $shadow-text: $colour-compliment-dark) {
+@mixin text-shadow($shadow-radius: $shadow-text-radius, $shadow-text: $colour-secondary) {
 	text-shadow: 0 0 $shadow-radius $shadow-text;
 }
 
@@ -37,7 +37,7 @@
 }
 
 // Gradients
-@mixin background-gradient($from: $colour-compliment-med, $to: $colour-compliment-light) {
+@mixin background-gradient($from: $colour-compliment-lightest, $to: $colour-compliment-med) {
 	background:			$from;
 	background-image:	-webkit-gradient(linear, left top, left bottom, from($from), to($to));
 	background-image:	-moz-linear-gradient(top, $from, $to);

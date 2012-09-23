@@ -1,35 +1,64 @@
 <div id="webstew" class="document">
-	<div id="webstew-stack" class="page">
-
-		<div class="tabula-rasa">
-			<div class="grid-primary">
-				<div class="pad">
-
-					<h1>WebStew</h1>
-
-					<!-- START: Tabs navigation -->
-					<ul class="list-inline">
-						<li><a href="#/projects" class="button button-secondary">Projects</a></li>
-						<li><a href="#/technologies" class="button button-secondary">Technologies</a></li>
-					</ul>
-					<!-- END: Tabs navigation -->
-
+		
+	<!-- START : Header -->
+	<div class="header" role="banner">
+		<header>
+			<div class="page">
+				<div class="grid-primary">
+					<div class="pad">
+						<h1 class="page-name">WebStew <span class="section-name">Home</span></h1>
+					</div>
 				</div>
 			</div>
+			<div id="navigation-primary" class="grid-primary navigation-primary" role="navigation">
+				<nav>
+					<br>
+				</nav>
+			</div>
+		</header>
+	</div>
+	<!-- END : Header -->
+		
+	<div class="page">
 
-			<div class="grid-primary">
-				<div class="pad">
-
-					<div id ="projects" class="projects">
+		<div class="grid-primary">
+			<div class="grid w-25">
+				
+				<!-- START : Sidebar -->
+				<div id="sidebar" class="pad">
+					
+					<!-- START : Sidebar stack navigation -->
+					<div class="stack-nav">
+						<nav role="navigation">
+							<ul class="list-inline stack-nav">
+								<li><a href="#/projects" class="button button-secondary">Projects</a></li>
+								<li><a href="#/technologies" class="button button-secondary">Technologies</a></li>
+							</ul>
+						</nav>
 					</div>
-	
-					<div id="technologies" class="technologies">
-						<div id="technologies-stack">
-							<div id="technologies-index">
-							</div>
+					<!-- END : Sidebar stack navigation -->
+						
+					<!-- START : Projects sidebar -->
+					<div id ="projects" class="projects">
+						<div id="projects-index" class="body">
 						</div>
 					</div>
-
+					<!-- END : Projects sidebar -->
+	
+					<!-- START : Technologies sidebar -->
+					<div id="technologies" class="technologies">
+						<div id="technologies-index" class="body">
+						</div>
+					</div>
+					<!-- END : Technologies sidebar -->
+	
+				</div>
+				<!-- END : Sidebar -->
+				
+			</div>
+			<div class="grid w-75">
+				<div class="pad">
+					<p>Main content region</p>
 				</div>
 			</div>
 		</div>

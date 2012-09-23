@@ -33,11 +33,10 @@
 	
 	// Global elements
 	abbr[title] {
-		border-bottom: 1px dotted $colour-body;
 		cursor: help;
 	}
 	body {
-	 	@include background-gradient();
+	 	@include background-gradient($colour-compliment-med, $colour-compliment-lightest);
 	 	background-attachment: fixed;
 	 	background-repeat: no-repeat;
 		color: $colour-body;
@@ -58,7 +57,7 @@
 		display:block;
 		font-family: $font-family-code;
 		margin:0 0 $margin-lrg;
-		padding: $padding-lrg;
+		padding: $pad-lrg;
 		@include wrap();
 	}
 	html {
@@ -71,7 +70,7 @@
 	ol,
 	ul {
 		list-style-position: inside;
-		margin: 0 0 $margin-lrg $margin-lrg;
+		margin: 0 0 $margin-med $margin-lrg;
 	}
 	ul {
 		list-style-type: $list-primary;
@@ -112,7 +111,7 @@
 		td,
 		th {
 			border-left: 1px solid $colour-compliment;
-			padding: $padding-med;
+			padding: $pad-med;
 		}	
 		th {
 			background: $colour-compliment-light;
@@ -137,10 +136,10 @@
 	.h4,
 	.h5 {
 		color: $colour-bold;
-		font-family: $font-family-2;
+		font-family: $font-family-1;
 		font-weight: 400;
 		font-size: 1em;
-		margin: 0 0 $margin-lrg;
+		margin: 0 0 $margin-med;
 	}
 	h1,
 	.h1 {
@@ -230,7 +229,7 @@
 	table {
 		td,
 		th {
-			padding: $padding-sml;
+			padding: $pad-sml;
 		}
 	}
 }

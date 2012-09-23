@@ -2,11 +2,17 @@
 <html lang="en">
 <head>
 	<title>WebStew</title>
+	
+	<!-- START : Metadata -->
 	<%= csrf_meta_tags %>
-	
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<!-- END : Metadata -->
 	
-	<%= stylesheet_link_tag    "application", :media => "all" %>
+	<!-- START : Stylesheets -->
+	<%= stylesheet_link_tag    "application" %>
+	<!-- END : Stylesheets -->
+
 </head>
 <!--[if IE 8]>
 	<body class="ie ie8">
@@ -20,11 +26,15 @@
 <!--[if !IE]><!-->
 <body>
 <!--<![endif]-->
-	<p class="notice"><%= notice %></p>
-	<p class="alert"><%= alert %></p>
+
+	<%= notice %>
+	<%= alert %>
 	
 	<%= yield %>
 	
+	<!-- START : JavaScripts -->
 	<%= javascript_include_tag "application" %>
+	<!-- END : JavaScripts -->
+	
 </body>
 </html>
