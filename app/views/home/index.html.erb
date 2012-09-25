@@ -1,5 +1,7 @@
-<div id="webstew" class="document">
-		
+<div id="webstew" class="document controller-loading">
+
+	<img src="/assets/images/loading.gif" alt="Content loading, please wait..." class="image-loading">
+			
 	<!-- START : Header -->
 	<div class="header" role="banner">
 		<header>
@@ -10,58 +12,100 @@
 					</div>
 				</div>
 			</div>
-			<div id="navigation-primary" class="grid-primary navigation-primary" role="navigation">
-				<nav>
-					<br>
-				</nav>
+			<div class="grid-primary navigation-primary" role="navigation">
+				<div class="page">
+							
+					<!-- START : Primary navigation stack -->
+					<div class="content-pad stack-nav">
+						<nav>
+							<nav role="navigation">
+								<ul class="list-inline stack-nav">
+									<li><a href="#/home">Home</a></li>
+									<li><a href="#/contact-us">Contact us</a></li>
+								</ul>
+							</nav>
+						</nav>
+					</div>
+					<!-- END : Sidebar stack navigation -->
+					
+				</div>
 			</div>
 		</header>
 	</div>
 	<!-- END : Header -->
-		
-	<div class="page">
-
-		<div class="grid-primary">
-			<div class="grid w-25">
-				
-				<!-- START : Sidebar -->
-				<div id="sidebar" class="pad">
-					
-					<!-- START : Sidebar stack navigation -->
-					<div class="stack-nav">
-						<nav role="navigation">
-							<ul class="list-inline stack-nav">
-								<li><a href="#/projects" class="button button-secondary">Projects</a></li>
-								<li><a href="#/technologies" class="button button-secondary">Technologies</a></li>
-							</ul>
-						</nav>
-					</div>
-					<!-- END : Sidebar stack navigation -->
-						
-					<!-- START : Projects sidebar -->
-					<div id ="projects" class="projects">
-						<div id="projects-index" class="body">
-						</div>
-					</div>
-					<!-- END : Projects sidebar -->
 	
-					<!-- START : Technologies sidebar -->
-					<div id="technologies" class="technologies">
-						<div id="technologies-index" class="body">
-						</div>
-					</div>
-					<!-- END : Technologies sidebar -->
 	
-				</div>
-				<!-- END : Sidebar -->
-				
-			</div>
-			<div class="grid w-75">
-				<div class="pad">
-					<p>Main content region</p>
-				</div>
-			</div>
+	<!-- START :  Home page -->
+	<div id="homes" class="page controller-body" role="main">
+							
+		<!-- START : Homes navigation stack -->
+		<div class="stack-nav pad">
+			<nav role="navigation">
+				<ul class="list-inline">
+					<li><a href="#/home/projects" class="button button-secondary">Projects</a></li>
+					<li><a href="#/home/technologies" class="button button-secondary">Technologies</a></li>
+				</ul>
+			</nav>
 		</div>
-
+		<!-- END : Homes navigation stack -->
+		
+		
+		<!-- START : Projects -->
+		<div id ="projects" class="projects">
+			
+			<!-- START : Projects results -->
+			<div id="projects-results">
+				<div class="grid-primary">
+					<div class="grid w-25">
+						
+						<!-- START : Sidebar -->
+						<div id="projects-sidebars" class="pad sidebars">
+			
+						</div>
+						<!-- END : Sidebar -->
+						
+					</div>
+					<div class="grid w-75">
+						<div class="pad">
+							<p>Projects main content</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- END : Projects results -->
+			
+		</div>
+		<!-- END : Projects -->
+		
+		
+		<!-- START : Technologies -->
+		<div id="technologies" class="technologies">
+		
+			<!-- START : Technologies results -->
+			<div id="technologies-results">
+				<div class="grid-primary">
+					<div class="grid w-25">
+						
+						<!-- START : Sidebar -->
+						<div id="technologies-sidebars" class="pad sidebars">
+			
+						</div>
+						<!-- END : Sidebar -->
+						
+					</div>
+					<div class="grid w-75">
+						<div class="pad">
+							<p>Technologies main content</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- END : Technologies results -->
+			
+		</div>
+		<!-- END : Technologies -->
+		
 	</div>
+	<!-- END : Home page -->
+	
 </div>

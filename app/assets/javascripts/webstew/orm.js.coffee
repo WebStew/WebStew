@@ -22,8 +22,8 @@ WebStew.ORM = {
 			list = @.el.find '.data-list'
 			
 			if filter
-				list.find('li:not(:Contains(' + filter + '))').hide();
-				list.find('li:Contains(' + filter + ')').show();
+				list.find('li:not(:contains(' + filter + '))').hide();
+				list.find('li:contains(' + filter + ')').show();
 			
 			else
 				list.children().show();
