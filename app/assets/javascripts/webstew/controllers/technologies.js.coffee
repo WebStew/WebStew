@@ -4,8 +4,12 @@ class TechnologiesSidebars extends Spine.Controller
 
 	@include WebStew.ORM.checkbox
 	@include WebStew.ORM.search
+	@include WebStew.ORM.loaded
 	
 	el: $ '#technologies-sidebars'
+	
+	elements:
+		'.data-list': 'list'
 	
 	events:
 		'click label': 'toggleCheckbox'
@@ -18,7 +22,8 @@ class TechnologiesSidebars extends Spine.Controller
 	
 	render:  =>
 		items = Technology.all()
-		@html @view('technologies/sidebar')(items)
+		@list.empty().prepend @view('technologies/sidebar')(items)
+		@loaded()
 		
 class TechnologiesResults extends Spine.Controller
 

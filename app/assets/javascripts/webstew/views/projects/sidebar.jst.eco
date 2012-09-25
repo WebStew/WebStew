@@ -1,39 +1,14 @@
-<div class="data-pane">
-	<div class="data-head">
-		<h2 class="data-name">Projects</h2>
-		<form class="data-search" action="#" role="search">
-			<label class="access" for="search-projects">Search projects</label>
-			<div class="field">
-				<input type="text" id="search-projects" name="data-search" class="data-search-input">
-				<button type="submit" class="button icon icon-search">
-					<span class="access">Search</span>
-				</button>
+<% if @.length: %>
+	<% for project in @: %>
+		<li>
+			<div class="check-box">
+				<input type="checkbox" id="project-<%= project.id %>" name="<%= project.name %>" class="hide">
+				<label for="project-<%= project.id %>"><span class="icon"></span><%= project.name %></label>
 			</div>
-		</form>
-	</div>
-	<div class="data-body">
-		<form action="#" class="linear">
-			<fieldset>
-				<legend class="access">
-					<span>Please choose your technologies</span>
-				</legend>
-				<ol class="data-list">
-					<% if @.length: %>
-						<% for project in @: %>
-							<li>
-								<div class="check-box">
-									<input type="checkbox" id="project-<%= project.id %>" name="<%= project.name %>" class="hide">
-									<label for="project-<%= project.id %>"><span class="icon"></span><%= project.name %></label>
-								</div>
-							</li>
-						<% end %>					
-					<% else: %>
-						<li>
-							<strong>No projects</strong>
-						</li>
-					<% end %>
-				</ol>
-			</fieldset>
-		</form>
-	</div>
-</div>
+		</li>
+	<% end %>					
+<% else: %>
+	<li>
+		<strong>No projects</strong>
+	</li>
+<% end %>

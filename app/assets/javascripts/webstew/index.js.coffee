@@ -17,18 +17,23 @@
 #= require_tree ./views
 
 # Application namespace
-class WebStew extends Spine.Controller
+class WebStew extends Spine.Stack
 
 	el: $ '#webstew'
 	
-#	className: 'stack-manager'
-# 	
-# 	controllers:
-# 		homes: Homes
+	className: 'stack-manager'
 	
-# 	routes:
-# 		'/home': (route) ->
-# 			@homes.active()
+	routes:		
+		'/home/projects': (route) ->
+			@homes.projects.active()
+			@homes.activate()
+			@homes.updateNav route
+		'/home/technologies': (route) ->
+			@homes.technologies.active()
+			@homes.activate()
+			@homes.updateNav route
+		'/home': (route) ->
+			@homes.activate()
 	
 	constructor: ->
 		super
@@ -39,40 +44,41 @@ class WebStew extends Spine.Controller
 			
 			className: 'stack-manager stack-item'
 
-			elements: 
+			elements:
 				'> .stack-nav': 'nav'
 
 			controllers:
 				projects: WebStew.Projects
 				technologies: WebStew.Technologies
 
-			routes:
-				'/home/projects': (route) ->
-					@projects.active()
-				'/home/technologies': (route) ->
-					@technologies.active()
+			default: 'projects'
 
 			constructor: ->
 				super
-				#@projects.active()
 
-			activate: (x) ->
+			activate: ->
 				@el.addClass 'stack-item-active'
-				console.log(x);
-				#@nav.find('.button-secondary-pressed').addClass('button-secondary').removeClass 'button-secondary-pressed'
-				#@nav.find('a[href="#' + location + '"]').addClass('button-secondary-pressed').removeClass 'button-secondary'
 
 			deactivate: ->
 				@el.removeClass 'stack-item-active'
+			
+			updateNav: (route) ->
+				@nav.find('.button-secondary-pressed').addClass('button-secondary').removeClass 'button-secondary-pressed'
+				@nav.find('a[href="#' + route.match.input + '"]').addClass('button-secondary-pressed').removeClass 'button-secondary'
 
 		@homes = new Homes
-		console.log(@homes);
-		@homes.active()
 		
-# 		if !window.location.hash
-# 			@navigate '/home'
+		if !window.location.hash
+			@navigate '/home'
 		
-		Spine.Route.setup()
+		Spine.Route.setup
+			history: true
+		
+		@loaded()
+	
+	loaded: ->
+		@el.children('.image-loading').remove()
+		@el.removeClass 'controller-loading'
 		
 window.WebStew = WebStew
 

@@ -1,5 +1,11 @@
 WebStew.ORM = {
 
+	# Removes the loading state from the view
+	loaded:
+		loaded: ->
+			@el.children('.image-loading').remove()
+			@el.removeClass 'controller-loading'
+
 	# Toggles the data-active class on a checked/unchecked checkbox
 	checkbox:
 		toggleCheckbox: (e) ->

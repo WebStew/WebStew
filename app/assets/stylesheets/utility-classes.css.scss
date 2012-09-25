@@ -44,24 +44,6 @@
 		font-weight :400;
 	}
 	
-	// Controllers
-	.controller-loading {
-		clear: left;
-		float: left;
-		position: relative;
-		width: 100%;
-		
-		.controller-body {
-			@include opacity();
-		}
-		.image-loading {
-			left: 50%;
-			margin: 0 0 0 -16px;
-			position: absolute;
-			top: 35%;
-		}
-	}
-	
 	// Lists
 	.list-plain,
 	.list-inline {
@@ -266,6 +248,24 @@
 		}
 		> .stack-item-active {
 			display: block;
+		}
+	}
+	
+	// Controllers
+	.controller-loading {
+		clear: left;
+		float: left;
+		position: relative;
+		width: 100%;
+		
+		.controller-body {
+			@include opacity();
+		}
+		.image-loading {
+			left: 50%;
+			margin: 0 0 0 -16px;
+			position: absolute;
+			top: 35%;
 		}
 	}
 	

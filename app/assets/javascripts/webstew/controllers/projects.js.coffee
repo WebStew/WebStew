@@ -4,8 +4,12 @@ class ProjectsSidebars extends Spine.Controller
 
 	@include WebStew.ORM.checkbox
 	@include WebStew.ORM.search
+	@include WebStew.ORM.loaded
 	
 	el: $ '#projects-sidebars'
+	
+	elements:
+		'.data-list': 'list'
 	
 	events:
 		'click label': 'toggleCheckbox'
@@ -18,7 +22,8 @@ class ProjectsSidebars extends Spine.Controller
 	
 	render:  =>
 		items = Project.all()
-		@html @view('projects/sidebar')(items)
+		@list.empty().prepend @view('projects/sidebar')(items)
+		@loaded()
 
 class ProjectsResults extends Spine.Controller
 	
