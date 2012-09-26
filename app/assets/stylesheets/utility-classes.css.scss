@@ -251,6 +251,14 @@
 			display: block;
 		}
 	}
+	.stack-nav {
+		a {
+			@include transition();
+		}
+		.stack-nav-active {
+			font-weight: 700;
+		}
+	}
 	
 	// Controllers
 	.controller-body {

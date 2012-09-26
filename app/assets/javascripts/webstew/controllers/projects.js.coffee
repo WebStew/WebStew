@@ -72,6 +72,8 @@ class WebStew.Projects extends Spine.Stack
 	controllers:
 		index: ProjectsIndexes
 	
+	default: 'index'
+	
 	constructor: ->
 		super
 		Project.fetch()

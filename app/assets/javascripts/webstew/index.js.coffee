@@ -50,8 +50,8 @@ class WebStew extends Spine.Stack
 		'/experience': (route) ->
 			@homes.deactivate()
 			@contacts.deactivate()
-			@experiences.projects.deactivate()
-			@experiences.technologies.deactivate()
+			#@experiences.projects.deactivate()
+			#@experiences.technologies.deactivate()
 			@updateNav route
 			@experiences.updateNav route
 			@experiences.activate()
@@ -101,6 +101,8 @@ class WebStew extends Spine.Stack
 			controllers:
 				projects: WebStew.Projects
 				technologies: WebStew.Technologies
+			
+			default: 'projects'
 
 			constructor: ->
 				super
@@ -112,8 +114,9 @@ class WebStew extends Spine.Stack
 				@el.removeClass 'stack-item-active'
 			
 			updateNav: (route) ->
+				location = if route.match.input == '/experience' then '/experience/projects' else route.match.input
 				@nav.find('.button-secondary-pressed').addClass('button-secondary').removeClass 'button-secondary-pressed'
-				@nav.find('a[href="#' + route.match.input + '"]').addClass('button-secondary-pressed').removeClass 'button-secondary'
+				@nav.find('a[href="#' + location + '"]').addClass('button-secondary-pressed').removeClass 'button-secondary'
 
 		@experiences = new Experiences
 		@homes = new Homes
@@ -132,7 +135,6 @@ class WebStew extends Spine.Stack
 		@el.removeClass 'controller-loading'
 	
 	updateNav: (route) ->
-		console.log(@nav);
 		@nav.find('.stack-nav-active').removeClass 'stack-nav-active'
 		@nav.find('a[href="#' + route.match.input + '"]').addClass 'stack-nav-active'
 

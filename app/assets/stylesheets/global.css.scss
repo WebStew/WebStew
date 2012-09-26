@@ -13,6 +13,7 @@
 	}
 	
 	// Custom webkit scrollbars
+/*
 	::-webkit-scrollbar {
 		background: $colour-compliment-light;
 		@include border-radius($border-sml, $border-sml, $border-sml, $border-sml);
@@ -30,6 +31,7 @@
 		background: $colour-action;
 		@include box-shadow-inset(0, 0, $shadow-box-radius, $colour-action-dark);
 	}
+*/
 	
 	// Global elements
 	abbr[title] {
