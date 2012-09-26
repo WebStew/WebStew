@@ -23,6 +23,10 @@
 	.navigation-primary {
 		@include background-gradient();
 		border-bottom: 1px solid $colour-compliment;
-		border-top: 1px solid $colour-compliment;
+		border-top: 1px solid $colour-compliment-darker;
+		
+		.webstew-nav {
+			padding-top: $pad-med;
+		}
 	}
 }

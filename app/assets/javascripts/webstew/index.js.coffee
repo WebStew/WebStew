@@ -5,7 +5,6 @@
 #= require spine/ajax
 #= require spine/route
 #= require spine/manager
-#= require spine/list
 
 #= require_tree ./lib
 #= require_self
@@ -22,44 +21,73 @@ class WebStew extends Spine.Stack
 	el: $ '#webstew'
 
 	elements:
+		'.page-name .section-name': 'section'
 		'.webstew-nav': 'nav'
 	
 	routes:
-		'/home': (route) ->
+		'/home': ( route ) ->
 			@experiences.deactivate()
 			@contacts.deactivate()
 			@updateNav route
+			@updateHeader route
 			@homes.activate()
 			
-		'/experience/projects': (route) ->
+		'/experience/projects/:id': ( route ) ->
+			console.log(route);
+			@homes.deactivate()
+			@contacts.deactivate()
+			@experiences.projects.active()
+			@experiences.projects.detail.active()
+			@experiences.updateNav route
+			@updateNav route
+			@updateHeader route
+			@experiences.activate()
+			
+		'/experience/projects': ( route ) ->
 			@homes.deactivate()
 			@contacts.deactivate()
 			@experiences.projects.active()
 			@experiences.projects.index.active()
 			@experiences.updateNav route
+			@updateNav route
+			@updateHeader route
 			@experiences.activate()
 			
-		'/experience/technologies': (route) ->
+		'/experience/technologies/:id': ( route ) ->
+			@homes.deactivate()
+			@contacts.deactivate()
+			@experiences.technologies.active()
+			@experiences.technologies.detail.active()
+			@experiences.updateNav route
+			@updateNav route
+			@updateHeader route
+			@experiences.activate()
+			
+		'/experience/technologies': ( route ) ->
 			@homes.deactivate()
 			@contacts.deactivate()
 			@experiences.technologies.active()
 			@experiences.technologies.index.active()
 			@experiences.updateNav route
+			@updateNav route
+			@updateHeader route
 			@experiences.activate()
 			
-		'/experience': (route) ->
+		'/experience': ( route ) ->
 			@homes.deactivate()
 			@contacts.deactivate()
 			#@experiences.projects.deactivate()
 			#@experiences.technologies.deactivate()
 			@updateNav route
+			@updateHeader route
 			@experiences.updateNav route
 			@experiences.activate()
 		
-		'/contact-me': (route) ->
+		'/contact-me': ( route ) ->
 			@experiences.deactivate()
 			@homes.deactivate()
 			@updateNav route
+			@updateHeader route
 			@contacts.activate()
 	
 	constructor: ->
@@ -113,10 +141,10 @@ class WebStew extends Spine.Stack
 			deactivate: ->
 				@el.removeClass 'stack-item-active'
 			
-			updateNav: (route) ->
-				location = if route.match.input == '/experience' then '/experience/projects' else route.match.input
-				@nav.find('.button-secondary-pressed').addClass('button-secondary').removeClass 'button-secondary-pressed'
-				@nav.find('a[href="#' + location + '"]').addClass('button-secondary-pressed').removeClass 'button-secondary'
+			updateNav: ( route ) ->
+				location = if route.match.input is '/experience' then '/experience/projects' else route.match.input
+				@nav.find( '.button-secondary-pressed' ).addClass( 'button-secondary' ).removeClass 'button-secondary-pressed'
+				@nav.find( 'a[href="#' + location + '"]' ).addClass( 'button-secondary-pressed' ).removeClass 'button-secondary'
 
 		@experiences = new Experiences
 		@homes = new Homes
@@ -131,12 +159,20 @@ class WebStew extends Spine.Stack
 		@loaded()
 	
 	loaded: ->
-		@el.children('.image-loading').remove()
+		@el.children( '.image-loading' ).remove()
 		@el.removeClass 'controller-loading'
 	
-	updateNav: (route) ->
-		@nav.find('.stack-nav-active').removeClass 'stack-nav-active'
-		@nav.find('a[href="#' + route.match.input + '"]').addClass 'stack-nav-active'
+	updateNav: ( route ) ->
+		location = route.match.input.split( '/' )[ 1 ]
+		@nav.find( '.stack-nav-active' ).removeClass 'stack-nav-active'
+		@nav.find( 'a[href="#/' + location + '"]' ).addClass 'stack-nav-active'
+	
+	updateHeader: ( route ) ->
+		location = route.match.input.split '/'
+		location = WebStew.utilities.upperCaseFirst location[ location.length - 1 ].replace '-', ' '
+		@section.text location
+		$('title').text 'WebStew - ' + location
+		
 
 window.WebStew = WebStew
 

@@ -5,12 +5,12 @@
 				<input type="checkbox" id="technology-<%= technology.id %>" name="<%= technology.name %>" class="hide">
 				<label for="technology-<%= technology.id %>">
 					<span class="icon"></span>
-					<% if technology.title.length : %>
+					<% if technology.title.length: %>
 						<abbr title="<%= technology.title %>">
-					<% end %>
-					<%= technology.name %>
-					<% if technology.title.length : %>
+							<%= technology.name %>
 						</abbr>
+					<% else: %>
+						<%= technology.name %>
 					<% end %>
 				</label>
 			</div>

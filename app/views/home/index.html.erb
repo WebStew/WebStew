@@ -12,19 +12,17 @@
 					</div>
 				</div>
 			</div>
-			<div class="grid-primary navigation-primary" role="navigation">
+			<div class="grid-primary navigation-primary">
 				<div class="page">
 							
 					<!-- START : Primary navigation stack -->
-					<div class="content-pad webstew-nav stack-nav">
+					<div class="webstew-nav stack-nav pad" role="navigation">
 						<nav>
-							<nav role="navigation">
-								<ul class="list-inline">
-									<li><a href="#/home">Home</a></li>
-									<li><a href="#/experience">Experience</a></li>
-									<li><a href="#/contact-me">Contact me</a></li>
-								</ul>
-							</nav>
+							<ol class="list-inline">
+								<li><a href="#/home">Home</a></li>
+								<li><a href="#/experience">Experience</a></li>
+								<li><a href="#/contact-me">Contact me</a></li>
+							</ol>
 						</nav>
 					</div>
 					<!-- END : Sidebar stack navigation -->
@@ -51,12 +49,12 @@
 	<div id="experiences" class="page controller-body stack-manager stack-item" role="main">
 							
 		<!-- START : Experiences navigation stack -->
-		<div class="stack-nav pad">
-			<nav role="navigation">
-				<ul class="list-inline">
+		<div class="stack-nav pad" role="navigation">
+			<nav>
+				<ol class="list-inline">
 					<li><a href="#/experience/projects" class="button button-secondary">Projects</a></li>
 					<li><a href="#/experience/technologies" class="button button-secondary">Technologies</a></li>
-				</ul>
+				</ol>
 			</nav>
 		</div>
 		<!-- END : Homes navigation stack -->
@@ -94,7 +92,7 @@
 												<legend class="access">
 													<span>Please choose your technologies</span>
 												</legend>
-												<ol class="data-list">
+												<ol class="data-list filter-list">
 												</ol>
 											</fieldset>
 										</form>
@@ -125,7 +123,7 @@
 										</form>
 									</div>
 									<div class="data-body controller-body">
-										<ul class="list-plain list-search">
+										<ul class="list-search grid-secondary filter-list">
 										</ul>
 									</div>
 								</div>
@@ -137,6 +135,23 @@
 				</div>
 			</div>
 			<!-- END : Projects results -->
+			
+			<!-- START : Projects details -->
+			<div id="projects-details" class="stack-item">
+				<div class="grid-primary">
+					<div class="grid w-50">
+						<div class="pad">
+							<h2>Details</h2>
+						</div>
+					</div>
+					<div class="grid w-50">
+						<div class="pad">
+							<h2>Details</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- END : Projects details -->
 			
 		</div>
 		<!-- END : Projects -->
@@ -174,7 +189,7 @@
 												<legend class="access">
 													<span>Please choose your technologies</span>
 												</legend>
-												<ol class="data-list">
+												<ol class="data-list filter-list">
 												</ol>
 											</fieldset>
 										</form>
@@ -205,7 +220,7 @@
 										</form>
 									</div>
 									<div class="data-body controller-body">
-										<ul class="list-plain list-search">
+										<ul class="list-search grid-secondary filter-list">
 										</ul>
 									</div>
 								</div>
@@ -217,6 +232,23 @@
 				</div>
 			</div>
 			<!-- END : Technologies results -->
+			
+			<!-- START : Technologies details -->
+			<div id="technologies-detail" class="stack-item">
+				<div class="grid-primary">
+					<div class="grid w-50">
+						<div class="pad">
+							<h2>Details</h2>
+						</div>
+					</div>
+					<div class="grid w-50">
+						<div class="pad">
+							<h2>Details</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- END : Technologies details -->
 			
 		</div>
 		<!-- END : Technologies -->
@@ -230,6 +262,127 @@
 			<div class="pad">
 				<h2>Contact me</h2>
 				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+			</div>
+			<div class="grid w-50">
+				<div class="pad">
+					
+					<div class="data-pane">
+						<div class="data-head">
+							<h3 class="data-name">Send me an email</h3>
+						</div>
+						<div class="data-body data-body-scrolless">
+							<div class="content-pad">
+					
+								<!-- START : Contact form -->
+								<form action="#/contact-me" method="post" class="linear">
+								
+									<div class="form-row">
+										<label for="contact-name">
+											<span class="require">*
+												<span class="access"> Required -</span>
+											</span> Name
+										</label>
+										<div class="field">
+											<input type="text" name="contact-name" id="contact-name" class="lrg">
+										</div>
+									</div>
+									
+									<div class="form-row">
+										<label for="contact-email">
+											<span class="require">*
+												<span class="access"> Required -</span>
+											</span> Email address
+										</label>
+										<div class="field">
+											<input type="text" name="contact-email" id="contact-email" class="lrg">
+										</div>
+									</div>
+									
+									<div class="form-row">
+										<label for="contact-comments">
+											<span class="require">*
+												<span class="access"> Required -</span>
+											</span> Comments
+										</label>
+										<div class="field">
+											<textarea name="contact-comments" id="contact-comments" rows="10" cols="52"></textarea>
+										</div>
+									</div>
+									
+									<div class="submit-row">
+										<button type="submit" class="button button-primary">Send</button>
+										<button type="reset" class="button button-secondary">Clear</button>
+									</div>
+									
+								</form>
+								<!-- END : Contact form -->
+								
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="grid w-50">
+				<div class="pad">
+				
+					<!-- START : Social networks -->
+					<div class="data-pane">
+						<div class="data-head">
+							<h3 class="data-name">Look me up on one of the below</h3>
+						</div>
+						<div class="data-body data-body-scrolless">
+							<ul class="list-search">
+								<li class="grid w-25">
+									<div class="pad">
+										<div class="object-read">
+											<h4 class="object-name">
+												<a href="#">Lorem ipsom</a>
+											</h4>
+										</div>
+									</div>
+								</li>
+								<li class="grid w-25">
+									<div class="pad">
+										<div class="object-read">
+											<h4 class="object-name">
+												<a href="#">Lorem ipsom</a>
+											</h4>
+										</div>
+									</div>
+								</li>
+								<li class="grid w-25">
+									<div class="pad">
+										<div class="object-read">
+											<h4 class="object-name">
+												<a href="#">Lorem ipsom</a>
+											</h4>
+										</div>
+									</div>
+								</li>
+								<li class="grid w-25">
+									<div class="pad">
+										<div class="object-read">
+											<h4 class="object-name">
+												<a href="#">Lorem ipsom</a>
+											</h4>
+										</div>
+									</div>
+								</li>
+								<li class="grid w-25">
+									<div class="pad">
+										<div class="object-read">
+											<h4 class="object-name">
+												<a href="#">Lorem ipsom</a>
+											</h4>
+										</div>
+									</div>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<!-- END : Social networks -->
+					
+				</div>
 			</div>
 		</div>
 	</div>

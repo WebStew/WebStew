@@ -4,8 +4,8 @@ Technology = WebStew.Technology
 class ProjectsFilters extends Spine.Controller
 
 	@include WebStew.ORM.checkbox
-	@include WebStew.ORM.search
 	@include WebStew.ORM.loaded
+	@include WebStew.ORM.search
 	
 	el: $ '#projects-filters'
 	
@@ -23,17 +23,22 @@ class ProjectsFilters extends Spine.Controller
 	
 	render:  =>
 		items = Technology.all()
-		@list.empty().prepend @view('technologies/filters')(items)
+		@list.empty().prepend @view( 'technologies/filters' )( items )
 		@loaded()
 
 class ProjectsResults extends Spine.Controller
 
 	@include WebStew.ORM.loaded
+	@include WebStew.ORM.search
 	
 	el: $ '#projects-results'
 	
 	elements:
 		'.list-search': 'list'
+		
+	events:
+		'keyup .data-search-input': 'filter'
+		'submit .data-search': 'filter'
 
 	constructor: ->
 		super
@@ -47,7 +52,7 @@ class ProjectsResults extends Spine.Controller
 		
 	render:  =>
 		items = Project.all()
-		@list.empty().prepend @view('projects/results')(items)
+		@list.empty().prepend @view( 'projects/results' )( items )
 		@loaded()
 
 class ProjectsIndexes extends Spine.Controller
@@ -64,6 +69,19 @@ class ProjectsIndexes extends Spine.Controller
 		
 	deactivate: ->
 		@el.removeClass 'stack-item-active'
+
+class ProjectsDetails extends Spine.Controller
+	
+	el: $ '#projects-details'
+
+	constructor: ->
+		super
+	
+	activate: ->
+		@el.addClass 'stack-item-active'
+		
+	deactivate: ->
+		@el.removeClass 'stack-item-active'
 		
 class WebStew.Projects extends Spine.Stack
 
@@ -71,6 +89,7 @@ class WebStew.Projects extends Spine.Stack
 
 	controllers:
 		index: ProjectsIndexes
+		detail: ProjectsDetails
 	
 	default: 'index'
 	

@@ -168,8 +168,6 @@
 		
 		.require {
 			color: $colour-error;
-			font-size: 1.231em;
-			font-weight: 700;
 		}
 		
 		// Errors
@@ -203,7 +201,7 @@
 		.form-row {
 			clear: left;
 			float: left;
-			margin-bottom: $margin-med;
+			margin-bottom: $margin-sml;
 			padding-bottom: $pad-sml;
 			padding-top: $pad-sml;
 			width: 100%;
@@ -220,9 +218,13 @@
 			@include border-radius($border-sml, $border-sml, $border-sml, $border-sml);
 			clear: left;
 			float: left;
-			margin: 0 0 $margin-lrg;
-			padding: $pad-med 0 0;
+			margin: 0 0 $margin-med;
 			width: 100%;
+			
+			.button {
+				float: right;
+				margin: 0 0 0 $margin-med;
+			}
 		}
 
 		// Landscape for radio and checkboxes
@@ -394,9 +396,6 @@
 		input,
 		textarea {
 			margin: 0;
-		}
-		.form-row {
-			margin: 0 0 $margin-sml;
 		}
 		.field {
 			clear: left;

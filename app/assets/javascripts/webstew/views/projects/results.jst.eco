@@ -1,12 +1,14 @@
 <% if @.length: %>
 	<% for project in @: %>
-		<li>
-			<div class="object-read" data-id="<%= project.id %>">
-				<h3 class="object-header">
-					<a href="#/home/projects/<%= project.id %>">
-						<%= project.name %>
-					</a>
-				</h3>
+		<li class="grid w-25">
+			<div class="pad">
+				<div class="object-read" data-id="<%= project.id %>">
+					<h3 class="object-name">
+						<a href="#/experience/projects/<%= project.id %>">
+							<%= project.name %>
+						</a>
+					</h3>
+				</div>
 			</div>
 		</li>
 	<% end %>					

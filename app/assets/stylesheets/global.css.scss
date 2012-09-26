@@ -81,7 +81,7 @@
 		list-style-type: $list-secondary;
 	}
 	li {
-		margin: 0 0 $margin-sml;
+		margin: 0 0 $margin-med;
 	}
 	small {
 		font-size: 0.846em;
@@ -184,6 +184,9 @@
 		&:focus {
 			color: $colour-action-dark;
 			text-decoration: $text-decoration-hover;
+		}
+		abbr[title] {
+			cursor: pointer;
 		}
 	}
 }

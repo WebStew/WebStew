@@ -8,11 +8,13 @@
 		clear: left;
 		margin: 0 auto;
 		max-width: $page-max;
+		padding: 0 $pad-sml;
 	}
 
 	// Grid layout
 	.grid-primary,
 	.grid-secondary {
+		@include box-sizing();
 		clear: left;
 		float: left;
 		width: 100%;
@@ -48,10 +50,6 @@
 // Mobile landscape to small tablet
 @media only screen and ( min-width: 480px ) and ( max-width: 850px ) {
 
-	.page {
-		padding: 0 $pad-med 0 $pad-med;
-	}
-
 	.w-20,
 	.w-33,
 	.grid-secondary > .w-25 {
@@ -73,7 +71,7 @@
 @media only screen and ( min-width: 320px ) and ( max-width: 519px ) {
 
 	.page {
-		padding: 0 $pad-sml 0 $pad-sml;
+		padding: 0;
 	}
 }
 
@@ -82,9 +80,5 @@
 
 	.grid {
 		width: 100%;
-	}
-	
-	.pad {
-		padding:0 $pad-sml;
 	}
 }
