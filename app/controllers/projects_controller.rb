@@ -3,11 +3,11 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.all
+    @projects = Project.all()
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @projects }
+      format.json { render json: @projects.to_json(:include => :technologies) }
     end
   end
 

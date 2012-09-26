@@ -1,12 +1,13 @@
+Project = WebStew.Project
 Technology = WebStew.Technology
 
-class TechnologiesSidebars extends Spine.Controller
+class TechnologiesFilters extends Spine.Controller
 
 	@include WebStew.ORM.checkbox
 	@include WebStew.ORM.search
 	@include WebStew.ORM.loaded
 	
-	el: $ '#technologies-sidebars'
+	el: $ '#technologies-filters'
 	
 	elements:
 		'.data-list': 'list'
@@ -18,24 +19,45 @@ class TechnologiesSidebars extends Spine.Controller
 
 	constructor: ->
 		super
-		Technology.bind 'refresh channge', @render
+		Project.bind 'refresh channge', @render
 	
 	render:  =>
-		items = Technology.all()
-		@list.empty().prepend @view('technologies/sidebar')(items)
+		items = Project.all()
+		@list.empty().prepend @view('projects/filters')(items)
 		@loaded()
 		
 class TechnologiesResults extends Spine.Controller
 
+	@include WebStew.ORM.loaded
+
 	el: $ '#technologies-results'
 	
-	className: 'stack-item'
+	elements:
+		'.list-search': 'list'
 	
 	constructor: ->
 		super
-		@sidebar = new TechnologiesSidebars
-		Technology.fetch()
-		#Technology.bind 'refresh channge', @render
+		Technology.bind 'refresh channge', @render
+	
+	activate: ->
+		@el.addClass 'stack-item-active'
+		
+	deactivate: ->
+		@el.removeClass 'stack-item-active'
+	
+	render:  =>
+		items = Technology.all()
+		@list.empty().prepend @view('technologies/results')(items)
+		@loaded()
+	
+class TechnologiesIndexes extends Spine.Controller
+
+	el: $ '#technologies-index'
+	
+	constructor: ->
+		super
+		@sidebar = new TechnologiesFilters
+		@results = new TechnologiesResults
 	
 	activate: ->
 		@el.addClass 'stack-item-active'
@@ -46,15 +68,13 @@ class TechnologiesResults extends Spine.Controller
 class WebStew.Technologies extends Spine.Stack
 
 	el: $ '#technologies'
-	
-	className: 'stack-manager stack-item'
 
 	controllers:
-		results: TechnologiesResults
+		index: TechnologiesIndexes
 	
 	constructor: ->
 		super
-		@results.active()
+		Technology.fetch()
 	
 	activate: ->
 		@el.addClass 'stack-item-active'

@@ -1,0 +1,23 @@
+<% if @.length: %>
+	<% for technology in @: %>
+		<li>
+			<div class="check-box">
+				<input type="checkbox" id="technology-<%= technology.id %>" name="<%= technology.name %>" class="hide">
+				<label for="technology-<%= technology.id %>">
+					<span class="icon"></span>
+					<% if technology.title.length : %>
+						<abbr title="<%= technology.title %>">
+					<% end %>
+					<%= technology.name %>
+					<% if technology.title.length : %>
+						</abbr>
+					<% end %>
+				</label>
+			</div>
+		</li>
+	<% end %>					
+<% else: %>
+	<li>
+		<strong>No technologies</strong>
+	</li>
+<% end %>

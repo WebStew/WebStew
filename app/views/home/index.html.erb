@@ -1,4 +1,4 @@
-<div id="webstew" class="document controller-loading">
+<div id="webstew" class="document controller-loading stack-manager">
 
 	<img src="/assets/loading.gif" alt="Content loading, please wait..." class="image-loading">
 			
@@ -16,12 +16,13 @@
 				<div class="page">
 							
 					<!-- START : Primary navigation stack -->
-					<div class="content-pad stack-nav">
+					<div class="content-pad webstew-nav stack-nav">
 						<nav>
 							<nav role="navigation">
 								<ul class="list-inline stack-nav">
 									<li><a href="#/home">Home</a></li>
-									<li><a href="#/contact-us">Contact us</a></li>
+									<li><a href="#/experience">Experience</a></li>
+									<li><a href="#/contact-me">Contact me</a></li>
 								</ul>
 							</nav>
 						</nav>
@@ -34,16 +35,27 @@
 	</div>
 	<!-- END : Header -->
 	
+	<!-- START : Home page -->
+	<div id="homes" class="page controller-body stack-manager stack-item" role="main">
+		<div class="grid-primary">
+			<div class="pad">
+				<h2>Home</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+			</div>
+		</div>
+	</div>
+	<!-- END : Home page -->
 	
-	<!-- START :  Home page -->
-	<div id="homes" class="page controller-body" role="main">
+	
+	<!-- START : Experiences page -->
+	<div id="experiences" class="page controller-body stack-manager stack-item" role="main">
 							
-		<!-- START : Homes navigation stack -->
+		<!-- START : Experiences navigation stack -->
 		<div class="stack-nav pad">
 			<nav role="navigation">
 				<ul class="list-inline">
-					<li><a href="#/home/projects" class="button button-secondary">Projects</a></li>
-					<li><a href="#/home/technologies" class="button button-secondary">Technologies</a></li>
+					<li><a href="#/experience/projects" class="button button-secondary">Projects</a></li>
+					<li><a href="#/experience/technologies" class="button button-secondary">Technologies</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -51,20 +63,21 @@
 		
 		
 		<!-- START : Projects -->
-		<div id ="projects" class="projects">
+		<div id ="projects" class="projects stack-manager stack-item">
+			<h2 class="access">Projects</h2>
 			
 			<!-- START : Projects results -->
-			<div id="projects-results">
+			<div id="projects-index" class="stack-item">
 				<div class="grid-primary">
 					<div class="grid w-25">
 						<div class="pad">
 						
 							<!-- START : Sidebar -->
-							<div id="projects-sidebars" class="sidebars controller-loading">
+							<div id="projects-filters" class="controller-loading">
 								<img src="/assets/loading.gif" alt="Content loading, please wait..." class="image-loading">
 								<div class="data-pane">
 									<div class="data-head">
-										<h2 class="data-name">Projects</h2>
+										<h2 class="data-name">Filter</h2>
 										<form class="data-search" action="#" role="search">
 											<label class="access" for="search-projects">Search projects</label>
 											<div class="field">
@@ -94,7 +107,31 @@
 					</div>
 					<div class="grid w-75">
 						<div class="pad">
-							<p>Projects main content</p>
+							
+							<!-- START : Projects results -->
+							<div id="projects-results" class="controller-loading">
+								<img src="/assets/loading.gif" alt="Content loading, please wait..." class="image-loading">
+								<div class="data-pane">
+									<div class="data-head">
+										<h3 class="data-name">Project results</h3>
+										<form class="data-search" action="#" role="search">
+											<label class="access" for="search-projects">Search projects</label>
+											<div class="field">
+												<input type="text" id="search-projects" name="data-search" class="data-search-input">
+												<button type="submit" class="button icon icon-search">
+													<span class="access">Search</span>
+												</button>
+											</div>
+										</form>
+									</div>
+									<div class="data-body controller-body">
+										<ul class="list-plain list-search">
+										</ul>
+									</div>
+								</div>
+							</div>
+							<!-- END : Projects results -->
+							
 						</div>
 					</div>
 				</div>
@@ -106,20 +143,21 @@
 		
 		
 		<!-- START : Technologies -->
-		<div id="technologies" class="technologies">
+		<div id="technologies" class="technologies stack-manager stack-item">
+			<h2 class="access">Technologies</h2>
 		
 			<!-- START : Technologies results -->
-			<div id="technologies-results">
+			<div id="technologies-index" class="stack-item">
 				<div class="grid-primary">
 					<div class="grid w-25">
 						<div class="pad">
 						
 							<!-- START : Sidebar -->
-							<div id="technologies-sidebars" class="sidebars controller-loading">
+							<div id="technologies-filters" class="controller-loading">
 								<img src="/assets/loading.gif" alt="Content loading, please wait..." class="image-loading">
 								<div class="data-pane">
 									<div class="data-head">
-										<h2 class="data-name">Technologies</h2>
+										<h3 class="data-name">Filter</h3>
 										<form class="data-search" action="#" role="search">
 											<label class="access" for="search-technologies">Search technologies</label>
 											<div class="field">
@@ -149,7 +187,31 @@
 					</div>
 					<div class="grid w-75">
 						<div class="pad">
-							<p>Technologies main content</p>
+							
+							<!-- START : Technologies results -->
+							<div id="technologies-results" class="controller-loading">
+								<img src="/assets/loading.gif" alt="Content loading, please wait..." class="image-loading">
+								<div class="data-pane">
+									<div class="data-head">
+										<h3 class="data-name">Technology results</h3>
+										<form class="data-search" action="#" role="search">
+											<label class="access" for="search-technologies">Search technologies</label>
+											<div class="field">
+												<input type="text" id="search-technologies" name="data-search" class="data-search-input">
+												<button type="submit" class="button icon icon-search">
+													<span class="access">Search</span>
+												</button>
+											</div>
+										</form>
+									</div>
+									<div class="data-body controller-body">
+										<ul class="list-plain list-search">
+										</ul>
+									</div>
+								</div>
+							</div>
+							<!-- END : Technologies results -->
+							
 						</div>
 					</div>
 				</div>
@@ -160,6 +222,17 @@
 		<!-- END : Technologies -->
 		
 	</div>
-	<!-- END : Home page -->
+	<!-- END : Experiences page -->
+	
+	<!-- START : Contact me -->
+	<div id="contacts" class="page controller-body stack-manager stack-item" role="main">
+		<div class="grid-primary">
+			<div class="pad">
+				<h2>Contact me</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+			</div>
+		</div>
+	</div>
+	<!-- END : Contact me -->
 	
 </div>

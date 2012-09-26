@@ -245,6 +245,7 @@
 	.stack-manager {
 		> .stack-item {
 			display: none;
+			@include transition(display, $transition-time, $transition-ease);
 		}
 		> .stack-item-active {
 			display: block;
@@ -252,6 +253,9 @@
 	}
 	
 	// Controllers
+	.controller-body {
+		@include transition(opacity, $transition-time, $transition-ease);
+	}
 	.controller-loading {
 		clear: left;
 		float: left;

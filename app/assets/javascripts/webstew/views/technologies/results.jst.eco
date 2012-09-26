@@ -1,0 +1,17 @@
+<% if @.length: %>
+	<% for technology in @: %>
+		<li>
+			<div class="object-read" data-id="<%= technology.id %>">
+				<h3 class="object-header">
+					<a href="#/home/technologies/<%= technology.id %>">
+						<%= technology.name %>
+					</a>
+				</h3>
+			</div>
+		</li>
+	<% end %>					
+<% else: %>
+	<li>
+		<strong>No projects</strong>
+	</li>
+<% end %>

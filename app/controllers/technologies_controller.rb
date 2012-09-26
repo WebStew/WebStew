@@ -7,7 +7,7 @@ class TechnologiesController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @technologies }
+      format.json { render json: @technologies.to_json(:include => :projects) }
     end
   end
 

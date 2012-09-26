@@ -1,12 +1,13 @@
 Project = WebStew.Project
+Technology = WebStew.Technology
 
-class ProjectsSidebars extends Spine.Controller
+class ProjectsFilters extends Spine.Controller
 
 	@include WebStew.ORM.checkbox
 	@include WebStew.ORM.search
 	@include WebStew.ORM.loaded
 	
-	el: $ '#projects-sidebars'
+	el: $ '#projects-filters'
 	
 	elements:
 		'.data-list': 'list'
@@ -18,24 +19,45 @@ class ProjectsSidebars extends Spine.Controller
 
 	constructor: ->
 		super
-		Project.bind 'refresh channge', @render
+		Technology.bind 'refresh channge', @render
 	
 	render:  =>
-		items = Project.all()
-		@list.empty().prepend @view('projects/sidebar')(items)
+		items = Technology.all()
+		@list.empty().prepend @view('technologies/filters')(items)
 		@loaded()
 
 class ProjectsResults extends Spine.Controller
+
+	@include WebStew.ORM.loaded
 	
 	el: $ '#projects-results'
 	
-	className: 'stack-item'
+	elements:
+		'.list-search': 'list'
 
 	constructor: ->
 		super
-		@sidebar = new ProjectsSidebars
-		Project.fetch()
-		#Project.bind 'refresh channge', @render
+		Project.bind 'refresh channge', @render
+	
+	activate: ->
+		@el.addClass 'stack-item-active'
+		
+	deactivate: ->
+		@el.removeClass 'stack-item-active'
+		
+	render:  =>
+		items = Project.all()
+		@list.empty().prepend @view('projects/results')(items)
+		@loaded()
+
+class ProjectsIndexes extends Spine.Controller
+	
+	el: $ '#projects-index'
+
+	constructor: ->
+		super
+		@filters = new ProjectsFilters
+		@results = new ProjectsResults
 	
 	activate: ->
 		@el.addClass 'stack-item-active'
@@ -46,15 +68,13 @@ class ProjectsResults extends Spine.Controller
 class WebStew.Projects extends Spine.Stack
 
 	el: $ '#projects'
-	
-	className: 'stack-manager stack-item'
 
 	controllers:
-		results: ProjectsResults
+		index: ProjectsIndexes
 	
 	constructor: ->
 		super
-		@results.active()
+		Project.fetch()
 	
 	activate: ->
 		@el.addClass 'stack-item-active'
