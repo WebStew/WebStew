@@ -4,7 +4,7 @@
 			<div class="pad">
 				<div class="object-read" data-id="<%= project.id %>">
 					<h3 class="object-name">
-						<a href="#/experience/projects/<%= project.id %>">
+						<a href="#/experience/projects/view/<%= project.name %>?id=<%= project.id %>">
 							<%= project.name %>
 						</a>
 					</h3>

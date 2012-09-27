@@ -19,7 +19,7 @@ class TechnologiesFilters extends Spine.Controller
 
 	constructor: ->
 		super
-		Project.bind 'refresh channge', @render
+		Project.bind 'refresh change', @render
 	
 	render:  =>
 		items = Project.all()
@@ -42,7 +42,7 @@ class TechnologiesResults extends Spine.Controller
 	
 	constructor: ->
 		super
-		Technology.bind 'refresh channge', @render
+		Technology.bind 'refresh change', @render
 	
 	activate: ->
 		@el.addClass 'stack-item-active'
@@ -77,11 +77,21 @@ class TechnologiesDetails extends Spine.Controller
 	constructor: ->
 		super
 	
-	activate: ->
+	activate: ( id ) ->
+		if Technology.exists id 
+			@render Technology.find id
+			
+		else 
+			Technology.fetch id
+			
 		@el.addClass 'stack-item-active'
 		
 	deactivate: ->
-		@el.removeClass 'stack-item-active'
+		@el.removeClass 'stack-item-active'	
+			
+	render:  ( item ) =>
+		#@list.empty().prepend @view( 'projects/results' )( items )
+		#@loaded()
 		
 class WebStew.Technologies extends Spine.Stack
 

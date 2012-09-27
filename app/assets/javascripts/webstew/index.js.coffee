@@ -28,18 +28,15 @@ class WebStew extends Spine.Stack
 		'/home': ( route ) ->
 			@experiences.deactivate()
 			@contacts.deactivate()
-			@updateNav route
 			@updateHeader route
 			@homes.activate()
 			
-		'/experience/projects/:id': ( route ) ->
-			console.log(route);
+		'/experience/projects/view/:id': ( route ) ->		
 			@homes.deactivate()
 			@contacts.deactivate()
 			@experiences.projects.active()
-			@experiences.projects.detail.active()
+			@experiences.projects.detail.active route.id.match( /\?id=(.*)/ )[ 1 ]
 			@experiences.updateNav route
-			@updateNav route
 			@updateHeader route
 			@experiences.activate()
 			
@@ -49,17 +46,15 @@ class WebStew extends Spine.Stack
 			@experiences.projects.active()
 			@experiences.projects.index.active()
 			@experiences.updateNav route
-			@updateNav route
 			@updateHeader route
 			@experiences.activate()
 			
-		'/experience/technologies/:id': ( route ) ->
+		'/experience/technologies/view/:id': ( route ) ->
 			@homes.deactivate()
 			@contacts.deactivate()
 			@experiences.technologies.active()
-			@experiences.technologies.detail.active()
+			@experiences.technologies.detail.active route.id.match( /\?id=(.*)/ )[ 1 ]
 			@experiences.updateNav route
-			@updateNav route
 			@updateHeader route
 			@experiences.activate()
 			
@@ -69,16 +64,14 @@ class WebStew extends Spine.Stack
 			@experiences.technologies.active()
 			@experiences.technologies.index.active()
 			@experiences.updateNav route
-			@updateNav route
 			@updateHeader route
 			@experiences.activate()
 			
 		'/experience': ( route ) ->
 			@homes.deactivate()
 			@contacts.deactivate()
-			#@experiences.projects.deactivate()
-			#@experiences.technologies.deactivate()
-			@updateNav route
+			@experiences.projects.index.active()
+			@experiences.projects.active()
 			@updateHeader route
 			@experiences.updateNav route
 			@experiences.activate()
@@ -86,7 +79,6 @@ class WebStew extends Spine.Stack
 		'/contact-me': ( route ) ->
 			@experiences.deactivate()
 			@homes.deactivate()
-			@updateNav route
 			@updateHeader route
 			@contacts.activate()
 	
@@ -162,16 +154,19 @@ class WebStew extends Spine.Stack
 		@el.children( '.image-loading' ).remove()
 		@el.removeClass 'controller-loading'
 	
-	updateNav: ( route ) ->
-		location = route.match.input.split( '/' )[ 1 ]
-		@nav.find( '.stack-nav-active' ).removeClass 'stack-nav-active'
-		@nav.find( 'a[href="#/' + location + '"]' ).addClass 'stack-nav-active'
-	
 	updateHeader: ( route ) ->
-		location = route.match.input.split '/'
-		location = WebStew.utilities.upperCaseFirst location[ location.length - 1 ].replace '-', ' '
+		paths = route.match.input.split '/'
+		section = paths[ 1 ]
+		location = WebStew.utilities.upperCaseFirst paths[ paths.length - 1 ].replace '-', ' '
+		location = location.replace /\?(.*)/, ''
+		
+		# Update the section names and page title
 		@section.text location
 		$('title').text 'WebStew - ' + location
+		
+		# Update thenavigation
+		@nav.find( '.stack-nav-active' ).removeClass 'stack-nav-active'
+		@nav.find( 'a[href="#/' + section + '"]' ).addClass 'stack-nav-active'
 		
 
 window.WebStew = WebStew

@@ -4,7 +4,7 @@
 			<div class="pad">
 				<div class="object-read" data-id="<%= technology.id %>">
 					<h3 class="object-name">
-						<a href="#/experience/technologies/<%= technology.id %>">
+						<a href="#/experience/technologies/view/<%= technology.name %>?id=<%= technology.id %>">
 							<% if technology.title.length: %>
 								<abbr title="<%= technology.title %>">
 									<%= technology.name %>

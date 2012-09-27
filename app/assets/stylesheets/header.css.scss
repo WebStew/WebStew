@@ -2,20 +2,23 @@
 	
 	// Masthead 
 	.header {
-		background: $colour-secondary;
 		@include background-gradient($colour-secondary-light, $colour-secondary);
 		margin: 0 0 $margin-med;
 		overflow: hidden;
 		padding: $pad-med 0 0;
 		
-		.page-name {
-			font-size: 1em;
+		.page-name,
+		.page-name a,
+		.section-name {
 			color: $colour-sharp;
+			font-size: 1.238em;
+			font-weight: 400;
+			letter-spacing: $letter-spacing;
+			margin: 0 0 $margin-med 0;
 			@include text-shadow();
-			
-			.section-name {
-				color: $colour-bold-lightest;
-			}
+		}
+		.section-name {
+			color: $colour-bold-lightest;
 		}
 	}
 	
