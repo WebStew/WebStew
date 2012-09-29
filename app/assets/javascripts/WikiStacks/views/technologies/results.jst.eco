@@ -1,0 +1,25 @@
+<% if @.length: %>
+	<% for technology in @: %>
+		<li class="grid w-25">
+			<div class="pad">
+				<div class="object-read" data-id="<%= technology.id %>">
+					<h3 class="object-name">
+						<a href="#/stacks/technologies/view/<%= technology.name %>?id=<%= technology.id %>">
+							<% if technology.title.length: %>
+								<abbr title="<%= technology.title %>">
+									<%= technology.name %>
+								</abbr>
+							<% else: %>
+								<%= technology.name %>
+							<% end %>
+						</a>
+					</h3>
+				</div>
+			</div>
+		</li>
+	<% end %>					
+<% else: %>
+	<li>
+		<strong>No projects</strong>
+	</li>
+<% end %>

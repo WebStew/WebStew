@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-WebStew::Application.load_tasks
+Wikistacks::Application.load_tasks

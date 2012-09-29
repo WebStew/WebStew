@@ -1,4 +1,4 @@
-WebStew::Application.routes.draw do
+Wikistacks::Application.routes.draw do
 
   ActiveAdmin.routes(self)
 
